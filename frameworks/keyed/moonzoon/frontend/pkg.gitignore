@@ -1,0 +1,7 @@
+/*
+!build_id
+!frontend_0.js
+!frontend_bg_0.wasm
+!snippets
+snippets/*/*
+!snippets/*/inline0.js

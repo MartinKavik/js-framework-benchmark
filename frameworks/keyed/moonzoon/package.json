@@ -1,0 +1,25 @@
+{
+  "name": "js-framework-benchmark-keyed-moonzoon",
+  "version": "1.0.0",
+  "description": "Benchmark for MoonZoon",
+  "license": "ISC",
+  "js-framework-benchmark": {
+    "frameworkVersion": "0.1.0"
+  },
+  "scripts": {
+    "build-prod": "echo This is a no-op. && echo Due to Rust dependencies, the generated files are already provided. && echo If you really want to rebuild from source use: && echo npm run build-prod-force",
+    "build-prod-force": "npm run build-step:install-wasm-pack && npm run build-step:copy-css && npm run build-step:install-mzoon && npm run build-step:build-app && npm run build-step:replace-pkg-gitignore",
+    "build-step:install-wasm-pack": "cargo install wasm-pack",
+    "build-step:copy-css": "cpy ../../../css/main.css public/css/ && cpy ../../../css/bootstrap/dist/css/bootstrap.min.css public/css/bootstrap/dist/css/ && cpy ../../../css/bootstrap/dist/fonts/* public/css/bootstrap/dist/fonts/",
+    "build-step:install-mzoon": "cargo install mzoon --git https://github.com/MoonZoon/MoonZoon --branch signals --root cargo_install_root --locked && cpy cargo_install_root/bin/mzoon* .",
+    "build-step:build-app": "mzoon build -r",
+    "build-step:replace-pkg-gitignore": "cpy frontend/pkg.gitignore frontend/pkg/ --rename=.gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krausest/js-framework-benchmark.git"
+  },
+  "devDependencies": {
+    "cpy-cli": "3.1.1"
+  }
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>MoonZoon</title>
+        <link rel="preload" href="./frontend/pkg/frontend_bg_0.wasm" as="fetch" type="application/wasm" crossorigin>
+        <link rel="preload" href="./frontend/pkg/frontend_0.js" as="script" type="text/javascript" crossorigin>
+        <!-- <link href="public/css/currentStyle.css" rel="stylesheet"/> -->
+        <link href="/css/currentStyle.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div id='main'></div>
+        <script type="module">
+            import init from './frontend/pkg/frontend_0.js';
+            init('./frontend/pkg/frontend_bg_0.wasm');
+        </script>
+    </body>
+</html>
